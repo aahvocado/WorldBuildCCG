@@ -7,9 +7,29 @@
 	    <link rel="shortcut icon" HREF="images/logo.ico">
 
 	    <title>WorldBuilder Card Game</title>
+
+		<script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
+
+
 	</head>
 	<body>
+		<script type="text/javascript">
 
-		BANANAS!
+		var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+		function preload() {
+			this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+			this.scale.pageAlignHorizontally = true;
+			this.scale.pageAlignVertically = true;
+			this.scale.setScreenSize( true );
+		}
+
+		function create() {
+		}
+
+		function update() {
+		}
+
+		</script>
 	</body>
 </html>
