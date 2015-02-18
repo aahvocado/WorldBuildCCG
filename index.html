@@ -8,28 +8,50 @@
 
 	    <title>WorldBuilder Card Game</title>
 
-		<script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
 
+	    <!-- Scripts -->
+		<script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
+		<script src="js/boardmanager.js"></script>
+  		<link href="css/style.css" rel="stylesheet">
 
 	</head>
 	<body>
 		<script type="text/javascript">
 
-		var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+		var game = new Phaser.Game(1000, 600, Phaser.AUTO, 'container', { preload: preload, create: create, update: update });
 
 		function preload() {
-			this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+			// this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 			this.scale.pageAlignHorizontally = true;
 			this.scale.pageAlignVertically = true;
 			this.scale.setScreenSize( true );
+			//init stats and values and stuff
+			init();
+			//load assets
+			game.load.image('card', 'images/tiny-1.png');
+			game.load.image('tileback', 'images/tiny-back.png');
 		}
 
 		function create() {
+			var spr;
+
+			//
+			console.log('test ' +board.length)
+			for(var i=0;i<board.length;i++){
+				for(var j=0;j<board[i].length;j++){
+					spr = game.add.sprite(i*80, j*80, 'tileback');
+					spr.scale.setTo(.5,.5);
+				}
+			}
 		}
 
 		function update() {
+		    if (game.input.mousePointer.isDown){
+		    }
 		}
 
 		</script>
+		<div id="container">
+		</div>
 	</body>
 </html>
